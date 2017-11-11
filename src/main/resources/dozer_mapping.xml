@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+    <!-- <configuration> -->
+    <!-- <custom-converters> -->
+    <!-- <converter -->
+    <!-- type="com.keja.test.beanmappingtest.dozer.TagToStringConverter"> -->
+    <!-- <class-a>java.lang.String</class-a> -->
+    <!-- <class-b>com.keja.test.beanmappingtest.model.Tag -->
+    <!-- </class-b> -->
+    <!-- </converter> -->
+    <!-- </custom-converters> -->
+
+    <!-- </configuration> -->
+
+    <mapping>
+        <class-a>com.keja.test.beanmappingtest.dto.EvenementDTO
+        </class-a>
+        <class-b>com.keja.test.beanmappingtest.model.Evenement</class-b>
+        <field>
+            <a>technique.auteurCreation</a>
+            <b>auteurCreation</b>
+        </field>
+        <field>
+            <a>technique.auteurMiseAJour</a>
+            <b>auteurMiseAJour</b>
+        </field>
+        <field>
+            <a>technique.dateCreation</a>
+            <b>dateCreation</b>
+        </field>
+        <!-- <field -->
+        <!-- custom-converter="com.keja.test.beanmappingtest.dozer.TagToStringConverter"> -->
+        <field>
+            <a>tags</a>
+            <b>tags</b>
+            <a-hint>java.lang.String</a-hint>
+        </field>
+    </mapping>
+</mappings> 
