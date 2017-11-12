@@ -11,9 +11,14 @@ import com.keja.test.beanmappingtest.mapstruct.EvenementMapper;
 import com.keja.test.beanmappingtest.model.Evenement;
 import com.keja.test.beanmappingtest.model.Observable;
 import com.keja.test.beanmappingtest.model.Tag;
+import com.keja.test.beanmappingtest.orika.TagToStringConverter;
 
 import fr.xebia.extras.selma.Selma;
 import junit.framework.TestCase;
+import ma.glasnost.orika.MapperFacade;
+import ma.glasnost.orika.MapperFactory;
+import ma.glasnost.orika.converter.ConverterFactory;
+import ma.glasnost.orika.impl.DefaultMapperFactory;
 
 /**
  * Unit test for simple App.
@@ -62,6 +67,19 @@ public class AppTest extends TestCase {
                 .builder(com.keja.test.beanmappingtest.selma.EvenementMapper.class).build();
         EvenementDTO evenementDTOSelma = selmaMapper.asEvenementDTO(sourceObject);
         System.out.println(evenementDTOSelma);
+
+        /**
+         * ORIKA
+         */
+        System.out.println("------------ ORIKA ------------");
+        MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
+        mapperFactory.classMap(Evenement.class, EvenementDTO.class).field("auteurCreation", "technique.auteurCreation")
+                .byDefault().register();
+        ConverterFactory converterFactory = mapperFactory.getConverterFactory();
+        converterFactory.registerConverter(new TagToStringConverter());
+        MapperFacade mapperOrika = mapperFactory.getMapperFacade();
+        EvenementDTO evenementDTOOrika = mapperOrika.map(sourceObject, EvenementDTO.class);
+        System.out.println(evenementDTOOrika);
 
     }
 

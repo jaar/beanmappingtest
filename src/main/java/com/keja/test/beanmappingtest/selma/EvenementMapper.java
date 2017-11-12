@@ -6,6 +6,8 @@ import com.keja.test.beanmappingtest.model.Evenement;
 import fr.xebia.extras.selma.IgnoreMissing;
 import fr.xebia.extras.selma.Mapper;
 
+//@Mapper(withIgnoreMissing = IgnoreMissing.ALL, withCustomFields = {
+//        @Field({ "auteurCreation", "technique.auteurCreation" }) })
 @Mapper(withIgnoreMissing = IgnoreMissing.ALL)
 public interface EvenementMapper {
 

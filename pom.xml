@@ -15,6 +15,7 @@
         <org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
         <dozer.version>5.5.1</dozer.version>
         <selma.version>1.0</selma.version>
+        <orika.version>1.5.2</orika.version>
     </properties>
 
     <dependencies>
@@ -37,6 +38,12 @@
             <groupId>fr.xebia.extras</groupId>
             <artifactId>selma</artifactId>
             <version>${selma.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+            <version>${orika.version}</version>
         </dependency>
 
         <dependency>
